@@ -4,7 +4,7 @@
 
 find $1 -name "*\.dpx" | sed 's:/[^/]*$::' | uniq > $1/dpx_list.tmp
 
-#Rawcooks the discovered DPXs in parallel. Maximum of six processes simultaneously
+#Rawcooks the discovered DPXs in parallel. Maximum of four processes simultaneously
 cat "$1/dpx_list.tmp" | parallel -j 4 rawcooked --no-check-padding {}
 
 #Deletes temporary file containing DPX filepaths.
